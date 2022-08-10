@@ -14,21 +14,22 @@ else
     fi
 fi
 # echo "$judir is set to be the root path of julia excutable"
-export ju1exe=$judir/usr/bin/julia
-if test -f $ju1exe
+export ju18exe=$judir/usr/bin/julia
+if test -f $ju18exe
 then
-    echo "$ju1exe is set to be the root path of julia excutable (debug mode)"
+    echo "$ju18exe is set to be the root path of julia excutable (debug mode)"
 else
-    export ju1exe=$judir/bin/julia
-    if test -f $ju1exe
+    export ju18exe=$judir/bin/julia
+    if test -f $ju18exe
     then
-        echo "$ju1exe is set to be the root path of julia excutable (release mode)"
+        echo "$ju18exe is set to be the root path of julia excutable (release mode)"
     else
         echo "Julia binary executeable is not found."
         return 0
     fi
 fi
-alias ju18="$ju1exe -O2 -t 1 --compile=all --image-codegen -L \"${prepareJITPath}/prepareJIT.jl\""
-alias jbuild="$ju1exe -O2 -t 1 --"
+alias ju18="$ju18exe -O2 -t 1 --compile=all --image-codegen -L \"${prepareJITPath}/prepareJIT.jl\""
+alias jbuild="$ju18exe -O2 -t 1 --"
 echo $(alias ju18)
 echo $(alias jbuild)
+echo "XXX$ju18exe"

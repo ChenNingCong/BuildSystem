@@ -4,14 +4,8 @@ using BuildSystem
 const buildSysPath = splitdir(Base.find_package("BuildSystem"))[1]
 const driverPath = abspath(joinpath(buildSysPath, "../test/buildDriver.jl"))
 const rootDir = abspath(joinpath(buildSysPath, "../test/"))
-const exePath = if (path = abspath(joinpath(@__DIR__, "../../julia/usr/bin/julia"));isfile(path))
-    path
-elseif (path = abspath(joinpath(@__DIR__, "../../julia/bin/julia")); isfile(path))
-    path
-else
-    error("You must place the julia binary at the same directory with BuildSytem!")
-end
 
+const exePath = ENV["ju18exe"]::String
 env = BuildEnv(joinpath(@__DIR__, "Project.toml"), rootDir, exePath, driverPath, joinpath(@__DIR__, "json.ninja"))
 
 Pkg.activate(env.tomlPath)
