@@ -1,0 +1,8 @@
+*.o
+*.lib
+*.ll
+.ninja
+*.csv
+*.config
+.vscode/*
+.history

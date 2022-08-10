@@ -1,0 +1,1 @@
+ar rcs show.lib ./objs/*.o
