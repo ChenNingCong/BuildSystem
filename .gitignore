@@ -1,7 +1,7 @@
 *.o
 *.lib
 *.ll
-.ninja
+*.ninja
 *.csv
 *.config
 .vscode/*
